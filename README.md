@@ -85,7 +85,7 @@ Gyugyi Péter - EZEL5H Kiss Bence - I10EJA
 
 ## Könyvtárstruktúra:
 
-![alt text](VallalatiTODOProject/doksi/konyvtar_stuktura.png)
+![alt text](VallalatiTODOProject/doksi/konyvtar_struktura.png)
 
 -	A ’controller’ tartalmazza a végpontokat
 -	a ’model’ az adatbázishoz tartozó osztályokat
