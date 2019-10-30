@@ -34,3 +34,86 @@ Gyugyi Péter - EZEL5H Kiss Bence - I10EJA
 1. Megfelelő szerepkörök biztosítása a vállalat munkafolyamatainak pontos elvégzésére.
  	- Csapatvezető és csapattag kapcsolat 
 	- Csapatvezetőnek lehetősége van feladat törlésére, csapattagnak nincs hozzá joga
+	
+## Adatbázisterv:
+	1.	User -> A felhasználó, aki használja az alkalmazást. Ha a user egy csapatvezető, törölhet is feladatot.
+	2.	Task -> A kiírt feladat. Ez tartalmazza a feladat státuszát, információkat a módosításokról és a feladat prioritási szintjét is.
+	3.	Comment -> A feladatokhoz hozzá lehet szólni, ha valami nem egyértelmű a csapattagok számára.
+	4.	Label -> Plusz információ a feladatokhoz.
+	
+![alt text](VallalatiTODOProject/doksi/uml.png)
+
+# User:
+1.	id – azonosító
+2.	name – a felhasználó teljes neve
+3.	username – a felhasználó választott neve a belépéshez
+4.	password – a felhasználó jelszava a belépéshez
+5.	role – a felhasználó szerepköre, ez lehet csapatvezető és csapattag
+6.	tasktodo – a felhasználó feladatai
+7.	comments – a felhasználó kommentjei
+
+# Task:
+1.	id – azonosító
+2.	name – a feladat neve
+3.	description – a feladat leírása
+4.	status – a feladat állapota, ez lehet ’new’, ’in_work’, ’on_hold’, ’done’
+5.	duedate – a feladat határideje
+6.	created_at – a feladat létrehozásának ideje
+7.	modified_at – a feladat legutóbbi módosításának ideje
+8.	priority – a feladat fontosságát jelzi, lehet ’low’, ’medium’, ’high’
+9.	comments – a feladathoz fűzött kommentek
+10.	labels – a feladathoz tartozó plusz információk
+11.	user – a felhasználó, aki a feladatot csinálja
+
+# Comment:
+1.	id – azonosító
+2.	user – a felhasználó, aki írta a kommentet
+3.	body – a komment tartalma
+4.	created_at – a komment posztolásának ideje
+5.	task – a feladat, amihez a komment tartozik
+
+# Label:
+1.	id – azonosító
+2.	text – a címke tartalma
+3.	tasks – a feladatok, amiket érint
+
+# Kapcsolatok:
+-	Egy felhasználó több feladatot csinálhat egyidőben
+-	Egy felhasználó több kommentet írhat
+-	Egy feladathoz több komment érkezhet
+-	Több különböző feladathoz tartozhat ugyan az a címke, és más címkék is
+
+## Könyvtárstruktúra:
+
+![alt text](VallalatiTODOProject/doksi/konyvtar_stuktura.png)
+
+-	A ’controller’ tartalmazza a végpontokat
+-	a ’model’ az adatbázishoz tartozó osztályokat
+-	ezeket a ’repository’ és a ’service’ kezeli
+-	a ’security’ a biztonsági beállításokat tartalmazza
+
+## Végpontok:
+-	POST (workers/””)
+-	DELETE (delete/{id})
+-	POST (login)
+-	GET (””)			(a userek listája)
+-	GET ({id})
+-	GET (task/{id})
+-	POST (addtask/{id})
+-	POST (removetask/{id})
+-	GET (tasks/””)			(a taskok listája)
+-	GET (tasks/{id})
+-	POST (tasks/””)			(task hozzáadása)
+-	PATCH (tasks/status/{id})
+-	PATCH (tasks/priority/{id})
+-	PATCH (tasks/duedate/{id})
+-	PATCH (tasks/worker/{id})
+-	PATCH (tasks/description/{id})
+-	DELETE (tasks/{id})
+-	POST (tasks/comments/{id})
+-	POST (tasks/removecomment/{id})
+
+# A login leírása:
+Két kitölthető mező és egy gomb jelenik meg. Az első mezőben meg kell adni a username-et, a másodikban a hozzá tartozó password-öt, ezután a ’Sign in’ gombbal megpróbálhatunk belépni. Ha a username-password párt helyesen adtuk meg, beléptet a rendszerben, különben hibaüzenetet kapunk és nem léphetünk tovább.
+
+![alt text](VallalatiTODOProject/doksi/szekvencia.png)
