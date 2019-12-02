@@ -1,0 +1,92 @@
+<form #form="ngForm" (ngSubmit)="addTask(form.form)">
+  <div class="form-group">
+    <h5>Title:</h5>
+    <input
+      class="form-control"
+      type="text"
+      name="title"
+      value=""
+      required
+      [(ngModel)]="task.name"
+      #title="ngModel"
+      /> <!--[(ngModel)]="task.name"
+      #title="ngModel"-->
+  </div>
+  <div class="form-group">
+    <h5>Description:</h5>
+    <textarea
+      rows="5"
+      cols="60"
+      type="text"
+      name="description"
+      
+      value=""
+      class="form-control"
+    ></textarea> <!--[(ngModel)]="task.description"
+      #description="ngModel"-->
+  </div>
+  <div class="form-group">
+    <h5>Deadline:</h5>
+    <input
+      type="date"
+      name="deadline"
+            required
+      class="form-control"
+    /> <!--[(ngModel)]="task.dueDate"
+      #deadline="ngModel"
+-->
+  </div>
+  <div class="form-group">
+    <h5>Priority</h5>
+    <input
+      type="radio"
+      name="priority"
+      
+      value="low"
+    /> <!--[(ngModel)]="task.priority"
+      #priority="ngModel"-->
+    Low
+    <input
+      type="radio"
+      name="priority"
+      
+      value="medium"
+      checked
+    /> <!--[(ngModel)]="task.priority"
+      #priority="ngModel"-->
+    Medium
+    <input
+      type="radio"
+      name="priority"
+      
+      value="high"
+    /> <!--[(ngModel)]="task.priority"
+      #priority="ngModel"-->
+    High
+  </div>
+  <div class="form-group">
+    <h5>Worker:</h5>
+    <input
+      type="text"
+      name="user"
+      
+      value=""
+      required
+      class="form-control"
+    /> <!--[(ngModel)]="task.user"
+      #user="ngModel"-->
+  </div>
+  <p>
+    <button
+      type="submit"
+      class="btn btn-success float-right"
+      [routerLink]="['/tasks']"
+    >
+      Add Task
+    </button>
+    <!--onclick-->
+  </p>
+</form>
+<a class="btn btn-dark text-white float-left" [routerLink]="['/tasks']"
+  >Back</a
+>

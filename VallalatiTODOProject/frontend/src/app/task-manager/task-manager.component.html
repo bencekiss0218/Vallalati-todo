@@ -1,0 +1,14 @@
+<!--<ng-container *ngIf="authService.role" = > = teamleader valami ilyesmi-->
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" [routerLink]="['/add-task']">
+      Add new task
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-task-list></app-task-list>
+  </div>
+</div>
