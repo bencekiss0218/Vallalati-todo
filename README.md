@@ -93,25 +93,53 @@ Gyugyi Péter - EZEL5H Kiss Bence - I10EJA
 -	a ’security’ a biztonsági beállításokat tartalmazza
 
 ## Végpontok:
--	POST (workers/””)
--	DELETE (delete/{id})
--	POST (login)
--	GET (””)			(a userek listája)
--	GET ({id})
--	GET (task/{id})
--	POST (addtask/{id})
--	POST (removetask/{id})
--	GET (tasks/””)			(a taskok listája)
--	GET (tasks/{id})
--	POST (tasks/””)			(task hozzáadása)
--	PATCH (tasks/status/{id})
--	PATCH (tasks/priority/{id})
--	PATCH (tasks/duedate/{id})
--	PATCH (tasks/worker/{id})
--	PATCH (tasks/description/{id})
--	DELETE (tasks/{id})
--	POST (tasks/comments/{id})
--	POST (tasks/removecomment/{id})
+-	POST (/workers)               
+-	DELETE (workers/delete/{id})    
+-	POST (/login)			
+-	GET (/workers)		
+-	GET (/workers/{id})              
+-	GET (/tasks/{id})                
+-	POST (/workers/addtask/{id})	 
+-	POST (/removetask/{id})		
+-	GET (/tasks)			
+-	POST (/tasks)			
+-	PATCH (/tasks/status/{id})	
+-	PATCH (/tasks/priority/{id})	
+-	PATCH (/tasks/duedate/{id})	
+-	PATCH (/tasks/worker/{id})	
+-	PATCH (/tasks/description/{id}) 
+-	DELETE (/tasks/{id})
+-	POST (/tasks/comments/{id})
+-	POST (/tasks/removecomment/{id})
+//	Task object:
+	{
+	"id" : int
+	"description": string,
+	"duedate": timestamp,
+	"name": string,
+	"status": string,
+	"priority": string,
+	"createdAt": timestamp,
+	"modifiedAt": timestamp,
+	"comments": array,
+	"labels": array,
+	}
+// 	Worker object:
+	{
+	"id": int
+	"name": string,
+	"role": string
+	}
+//	Comment object:
+	{
+	"user": worker
+	"body": string,
+	"created_at": timestamp
+	}
+//	Label object:
+	{
+	"text": string
+	}
 
 ### A login leírása:
 Két kitölthető mező és egy gomb jelenik meg. Az első mezőben meg kell adni a username-et, a másodikban a hozzá tartozó password-öt, ezután a ’Sign in’ gombbal megpróbálhatunk belépni. Ha a username-password párt helyesen adtuk meg, beléptet a rendszerben, különben hibaüzenetet kapunk és nem léphetünk tovább.
