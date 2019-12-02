@@ -20,6 +20,11 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @GetMapping("login")
+    public ResponseEntity login() {
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("")
     public ResponseEntity<User> register(@RequestBody User user) {
         Optional<User> oUser = userService.findByUsername(user.getUsername());

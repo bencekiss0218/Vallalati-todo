@@ -1,0 +1,82 @@
+<div style="padding-left: 4em;">
+    <h1>Edit task</h1>
+    <input
+      type="text"
+      name="title"
+      required
+      [(ngModel)]="task.name"
+      #title="ngModel"
+      class="form-control"
+    />
+    <h5>Description:</h5>
+    <textarea
+      rows="5"
+      cols="60"
+      type="text"
+      name="description"
+      [(ngModel)]="task.description"
+      #description="ngModel"
+      class="form-control"
+    ></textarea>
+    <h5>Deadline:</h5>
+    <input
+      type="date"
+      name="duedate"
+      required
+      [(ngModel)]="task.dueDate"
+      #dueadate="ngModel"
+      class="form-control"
+    />
+    <h5>Priority</h5>
+    <input
+      type="radio"
+      name="priority"
+      
+      value="low"
+    />
+    Low
+    <input
+      type="radio"
+      name="priority"
+      
+      value="medium"
+      checked
+    />
+    Medium
+    <input
+      type="radio"
+      name="priority"
+      
+      value="high"
+    />
+    High
+
+    <h5>Worker:</h5>
+    <input
+      type="text"
+      name="user"
+      
+      value="task.worker.name"
+      required
+      class="form-control"
+    />
+    <p>
+    </p>
+      <button
+        type="submit"
+        class="btn btn-success float-right"
+        [routerLink]="['/tasks']"
+      >
+        Save
+      </button>
+      <a class="btn btn-dark text-white float-left" [routerLink]="['/tasks']"
+      >Back</a
+      >
+
+    <!--<app-task-form
+        *ngIf="task"
+        [task]="task"
+        [mode]="'edit'"
+        (taskSubmit)="modifyTask($event)"
+    ></app-task-form>-->
+</div>

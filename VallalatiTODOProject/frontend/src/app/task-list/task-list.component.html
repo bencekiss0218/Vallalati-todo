@@ -1,0 +1,22 @@
+<input class="mt-4" type="checkbox" name="onlyMyTasks" value="myTasks"> Show only my tasks
+
+<div
+  class="card card-header mt-2"
+  *ngIf="taskService.filteredTasks.length == 0"
+>
+  <h6>There are no available tasks</h6>
+</div>
+<!--show only my tasks-->
+<ul
+  class="list-group mt-1"
+  *ngFor="let task of taskService.filteredTasks"
+  [routerLink]="['/', 'tasks', task.id]"
+>
+  <li class="list-group-item bg-dark text-white">
+      {{ task.name }}
+      <button type="button" class="btn btn-danger float-right" (click)="delete(task)"> Delete</button>
+      <h5 class="float-right">&nbsp;</h5>
+      <button type="button" class="btn btn-primary float-right" [routerLink]="['/', 'edit', task.id]">Edit</button> <!--ezekre valami ilyesmi: *ngIf = "authService.getRole() = team_leader"-->
+      <h6 class="float-right align-middle">{{ task.status }} &nbsp;</h6>
+  </li>
+</ul>

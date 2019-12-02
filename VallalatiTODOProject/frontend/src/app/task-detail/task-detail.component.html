@@ -1,0 +1,34 @@
+<div class="card card-header bg-dark text-white">
+  <h4>Task Details</h4>
+</div>
+<!--hianyos adatok-->
+<div class="card card-body" *ngIf="task">
+  <div>Title: {{ task?.name }}</div>
+  <hr />
+  <div>Description: {{ task?.description }}</div>
+  <hr />
+  <div>Status: {{ task?.status }}</div>
+  <hr />
+  <div>Deadline: {{ task?.dueDate | date: "yyyy.MM.dd." }}</div>
+  <hr />
+  <div>Created at: {{ task?.createdAt | date: "yyyy.MM.dd." }}</div>
+  <hr />
+  <div>
+    Last modification: {{ task?.lastModification | date: "yyyy.MM.dd." }}
+  </div>
+  <hr />
+  <div>Priority: {{ task?.priority }}</div>
+  <hr />
+  <div>
+    Worker:
+    <div *ngIf="task.user == null">This task has not been taken yet.</div>
+    {{ task?.user }}
+  </div>
+  <!--<hr />
+  <div>
+    comments:
+    <div *ngIf="task.comments != null">{{ task?.comments }}</div>
+  </div>-->
+</div>
+<br />
+<a class="btn btn-dark text-white float-left" [routerLink]="['/tasks']">Back</a>

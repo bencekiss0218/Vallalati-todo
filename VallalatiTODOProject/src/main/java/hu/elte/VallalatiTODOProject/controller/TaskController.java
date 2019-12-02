@@ -25,13 +25,13 @@ public class TaskController {
     @Autowired
     private CommentService commentService;
 
-    @Secured( { "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" } )
+    //@Secured( { "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" } )
     @GetMapping("")
     public Iterable<Task> getTasks() {
         return taskService.findAll();
     }
 
-    @Secured( { "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" } )
+    //@Secured( { "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" } )
     @GetMapping("/{id}")
     public Task getTaskById(
             @PathVariable Integer id
@@ -44,7 +44,7 @@ public class TaskController {
         }
     }
 
-    @Secured( { "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" } )
+    //@Secured( { "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" } )
     @PostMapping("")
     public ResponseEntity<Task> createTask(
             @RequestBody Task task
@@ -54,7 +54,7 @@ public class TaskController {
         return ResponseEntity.ok(savedTask);
     }
 
-    @Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
+    //@Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
     @PatchMapping("/status/{id}")
     public ResponseEntity<Task> modifyTaskStatus(
             @PathVariable Integer id,
@@ -75,7 +75,7 @@ public class TaskController {
         }
     }
 
-    @Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
+    //@Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
     @PatchMapping("/priority/{id}")
     public ResponseEntity<Task> modifyTaskPriority(
             @PathVariable Integer id,
@@ -96,7 +96,7 @@ public class TaskController {
         }
     }
 
-    @Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
+    //@Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
     @PatchMapping("/duedate/{id}")
     public ResponseEntity<Task> modifyTaskDueDate(
             @PathVariable Integer id,
@@ -117,7 +117,7 @@ public class TaskController {
         }
     }
 
-    @Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
+    //@Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
     @PatchMapping("/worker/{id}")
     public ResponseEntity<Task> modifyTaskWorker(
             @PathVariable Integer id,
@@ -138,7 +138,7 @@ public class TaskController {
         }
     }
 
-    @Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
+    //@Secured({ "ROLE_TEAM_LEADER", "ROLE_TEAM_MEMBER" })
     @PatchMapping("/description/{id}")
     public ResponseEntity<Task> modifyTaskDescription(
             @PathVariable Integer id,
@@ -159,7 +159,7 @@ public class TaskController {
         }
     }
 
-    @Secured( { "ROLE_TEAM_LEADER" } )
+    //@Secured( { "ROLE_TEAM_LEADER" } )
     @DeleteMapping("/{id}")
     public ResponseEntity deleteTask(
             @PathVariable Integer id
