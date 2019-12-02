@@ -111,7 +111,7 @@ Gyugyi Péter - EZEL5H Kiss Bence - I10EJA
 -	DELETE (/tasks/{id})
 -	POST (/tasks/comments/{id})
 -	POST (/tasks/removecomment/{id})
--//	Task object:
+-	Task object:
 	{
 	"id" : int
 	"description": string,
@@ -124,19 +124,19 @@ Gyugyi Péter - EZEL5H Kiss Bence - I10EJA
 	"comments": array,
 	"labels": array,
 	}
--// 	Worker object:
+- 	Worker object:
 	{
 	"id": int
 	"name": string,
 	"role": string
 	}
--//	Comment object:
+-	Comment object:
 	{
 	"user": worker
 	"body": string,
 	"created_at": timestamp
 	}
--//	Label object:
+-	Label object:
 	{
 	"text": string
 	}
