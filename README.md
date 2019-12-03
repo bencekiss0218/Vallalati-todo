@@ -145,3 +145,21 @@ Gyugyi Péter - EZEL5H Kiss Bence - I10EJA
 Két kitölthető mező és egy gomb jelenik meg. Az első mezőben meg kell adni a username-et, a másodikban a hozzá tartozó password-öt, ezután a ’Sign in’ gombbal megpróbálhatunk belépni. Ha a username-password párt helyesen adtuk meg, beléptet a rendszerben, különben hibaüzenetet kapunk és nem léphetünk tovább.
 
 ![alt text](VallalatiTODOProject/doksi/szekvencia.png)
+
+### Felhasználói dokumentáció:
+-    Az alkalmazás egy cég számára teszi gyorsabbá ás kényelmessé a feladatok managelését.
+
+-    Az alkalmazás természetesen csak a cég dolgozói és vezetői számára elérhetőek, és a dolgozók is csak a saját felhasználójuk számára elérhető funkciókat használhatják. 
+
+-    Azonosítás után a dolgozók megtekinthetik a feladatok listáját. Ez tartalmazza a korábban elvégzett és az aktív feladatokat részletit is. Ezzel követhetik nyomon saját feladataikat, illetve megnézhetik, hogy más feladatokat melyik munkatársuk végzi.
+
+-    A vezetők számára több funkció is elérhető, ők írhatnak ki új feladatokat, szerkeszthetik és törölhetik őket.
+
+-    A futtatáshoz egy böngésző elegendő, például: Google Chrome, Firefox, Opera...
+
+-    Telepítés:
+
+1.   Cloneozás Githubról
+2.   Parancssorban a frontend megnyitása
+3.   npm install parancs futtatása
+4.   Ezután kész a telepítés, spring-boot:run-al és ng serve-el elindítható az app.
