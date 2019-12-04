@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
 
-  constructor(/*private auth: AuthenticationService*/) {}
+  constructor(private auth: AuthenticationService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
     const newHeaders = req.headers
-      .append('Content-Type', 'application/json');
-      // .append('Authorization', `Basic ${this.auth.token}`);
+      .append('Content-Type', 'application/json')
+      .append('Authorization', `Basic ${this.auth.token}`);
     const serverOrigin = 'http://localhost:8080/';
     const serverUrl = serverOrigin + req.url;
     const decoratedReq = req.clone({

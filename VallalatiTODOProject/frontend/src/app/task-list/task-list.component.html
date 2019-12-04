@@ -14,7 +14,7 @@
 >
   <li class="list-group-item bg-dark text-white">
       {{ task.name }}
-      <button type="button" class="btn btn-danger float-right" (click)="delete(task)"> Delete</button>
+      <button type="button" class="btn btn-danger float-right" (click)="delete(task); $event.stopPropagation()"> Delete</button>
       <h5 class="float-right">&nbsp;</h5>
       <button type="button" class="btn btn-primary float-right" [routerLink]="['/', 'edit', task.id]">Edit</button> <!--ezekre valami ilyesmi: *ngIf = "authService.getRole() = team_leader"-->
       <h6 class="float-right align-middle">{{ task.status }} &nbsp;</h6>

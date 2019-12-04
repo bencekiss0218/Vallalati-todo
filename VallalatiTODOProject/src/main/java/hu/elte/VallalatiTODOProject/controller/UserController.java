@@ -2,6 +2,7 @@ package hu.elte.VallalatiTODOProject.controller;
 
 import hu.elte.VallalatiTODOProject.model.Task;
 import hu.elte.VallalatiTODOProject.model.User;
+import hu.elte.VallalatiTODOProject.security.AuthenticatedUser;
 import hu.elte.VallalatiTODOProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/workers")
 public class UserController {
+
+    @Autowired
+    AuthenticatedUser authenticatedUser;
 
     @Autowired
     UserService userService;
@@ -22,7 +27,7 @@ public class UserController {
 
     @GetMapping("login")
     public ResponseEntity login() {
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(authenticatedUser.getUser());
     }
 
     @PostMapping("")
